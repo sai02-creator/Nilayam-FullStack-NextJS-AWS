@@ -33,7 +33,7 @@ export default function LoginPage() {
     }
     return (<main className="mx-auto flex min-h-[88vh] max-w-5xl items-center px-4 py-8 md:px-8">
       <section className="grid w-full overflow-hidden rounded-3xl border border-ink-200 bg-surface shadow-sm md:grid-cols-2">
-        <div className="bg-gradient-to-br from-brand-50 via-white to-brand-100 p-8 md:p-10">
+        <div className="bg-linear-to-br from-brand-50 via-white to-brand-100 p-8 md:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">
             Welcome back
           </p>
