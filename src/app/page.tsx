@@ -302,7 +302,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       <footer className="mt-16 rounded-3xl border border-ink-200 bg-surface p-6 shadow-sm md:mt-14 md:p-7">
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-semibold text-ink-900">StayScape</h3>
+            <h3 className="text-2xl font-semibold text-ink-900">Nilayam</h3>
             <p className="mt-3 max-w-xl text-sm text-ink-600">
               Discover carefully curated US stays with a booking flow designed
               for clarity and confidence. Compare homes quickly and reserve with
