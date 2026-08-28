@@ -27,6 +27,20 @@ const categoryItems = [
     { label: "Ski-in/out", icon: Snowflake },
 ];
 
+type UnifiedCard = {
+    id: string;
+    title: string;
+    image: string;
+    city: string;
+    category: string;
+    hostName: string;
+    rating: number;
+    price: number;
+    maxGuests: number;
+    availableDates: string[];
+    isExternal: boolean;
+};
+
 
 export default function Home() {
   return (
