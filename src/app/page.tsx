@@ -16,6 +16,17 @@ type HomePageProps = {
     }>;
 }; 
 
+const categoryItems = [
+    { label: "Scenic views", icon: Mountain },
+    { label: "Beachfront", icon: Palmtree },
+    { label: "Guest favorites", icon: Flame },
+    { label: "Cabins", icon: Home },
+    { label: "Countryside stays", icon: TreePalm },
+    { label: "Lakefront", icon: Waves },
+    { label: "Historic homes", icon: Landmark },
+    { label: "Ski-in/out", icon: Snowflake },
+];
+
 
 export default function Home() {
   return (
