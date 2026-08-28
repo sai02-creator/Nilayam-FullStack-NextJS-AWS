@@ -333,7 +333,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
           </div>
         </div>
         <div className="mt-8 border-t border-ink-200 pt-4 text-xs text-ink-500">
-          © {new Date().getFullYear()} StayScape. All rights reserved.
+          © {new Date().getFullYear()} Nilayam. All rights reserved.
         </div>
       </footer>
     </main>);
