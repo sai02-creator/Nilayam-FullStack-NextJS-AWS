@@ -101,3 +101,26 @@ export default async function ListingPage({ params, searchParams }: ListingPageP
             })
             : Promise.resolve(null)
     ]);
+    const bookedRanges = recentReservations.map((reservation) => ({
+        startDate: reservation.startDate,
+        endDate: reservation.endDate
+    }));
+    const bookingStatus = query.booking === "success" || query.booking === "error" ? query.booking : null;
+    const bookingMessage = query.message ?? null;
+    const initialCheckIn = query.checkIn;
+    const initialCheckOut = query.checkOut;
+    const initialAdults = query.adults;
+    const initialChildren = query.children;
+    const initialInfants = query.infants;
+    return (<main className="mx-auto min-h-screen max-w-7xl px-4 pb-28 pt-5 md:px-8 md:pb-10 md:pt-8">
+      <article className="space-y-6 md:space-y-8">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)] lg:items-start">
+          <div className="order-2 space-y-6 md:space-y-7 lg:order-1">
+            <section>
+              <ListingImageGallery images={listing.imageGallery.length > 0 ? listing.imageGallery : [listing.imageSrc]} altBase={listing.title}/>
+              <ListingHeaderInfo category={listing.category} title={listing.title} locationValue={listing.locationValue} hostRating={hostRating} hostName={listing.hostName} pricePerNight={listing.pricePerNight} listingStatusLabel={isDemoListing
+            ? "Featured demo listing"
+            : reservationCount > 0
+                ? `${reservationCount} confirmed booking${reservationCount > 1 ? "s" : ""}`
+                : "Newly listed"}/>
+            </section>
