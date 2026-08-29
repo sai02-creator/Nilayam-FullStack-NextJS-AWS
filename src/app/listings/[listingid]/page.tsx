@@ -9,7 +9,6 @@ import { ListingAbout } from "@/components/listing/listing-about";
 import { ListingBookedRanges } from "@/components/listing/listing-booked-ranges";
 import { ListingMap } from "@/components/listing/listing-map";
 import { ListingBookingSidebar } from "@/components/listing/listing-booking-sidebar";
-
 type ListingPageProps = {
     params: Promise<{
         listingId: string;
@@ -24,7 +23,6 @@ type ListingPageProps = {
         infants?: string;
     }>;
 };
-
 export default async function ListingPage({ params, searchParams }: ListingPageProps) {
     const { listingId } = await params;
     const query = await searchParams;
@@ -124,3 +122,18 @@ export default async function ListingPage({ params, searchParams }: ListingPageP
                 ? `${reservationCount} confirmed booking${reservationCount > 1 ? "s" : ""}`
                 : "Newly listed"}/>
             </section>
+
+            <ListingAbout description={listing.description} guestCount={listing.guestCount} roomCount={listing.roomCount} bathroomCount={listing.bathroomCount} hostName={listing.hostName} hostRating={hostRating}/>
+
+            <ListingBookedRanges bookedRanges={bookedRanges}/>
+
+            <ListingMap locationValue={listing.locationValue}/>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <ListingBookingSidebar listingId={listing.id} pricePerNight={listing.pricePerNight} hostName={listing.hostName} reservationCount={reservationCount} userActiveReservation={userActiveReservation} maxGuests={listing.guestCount} isLoggedIn={Boolean(user)} bookingStatus={bookingStatus} bookingMessage={bookingMessage} unavailableRanges={bookedRanges} initialCheckIn={initialCheckIn} initialCheckOut={initialCheckOut} initialAdults={initialAdults} initialChildren={initialChildren} initialInfants={initialInfants}/>
+          </div>
+        </div>
+      </article>
+    </main>);
+}
