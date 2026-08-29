@@ -9,3 +9,18 @@ import { ListingAbout } from "@/components/listing/listing-about";
 import { ListingBookedRanges } from "@/components/listing/listing-booked-ranges";
 import { ListingMap } from "@/components/listing/listing-map";
 import { ListingBookingSidebar } from "@/components/listing/listing-booking-sidebar";
+
+type ListingPageProps = {
+    params: Promise<{
+        listingId: string;
+    }>;
+    searchParams: Promise<{
+        booking?: string;
+        message?: string;
+        checkIn?: string;
+        checkOut?: string;
+        adults?: string;
+        children?: string;
+        infants?: string;
+    }>;
+};
