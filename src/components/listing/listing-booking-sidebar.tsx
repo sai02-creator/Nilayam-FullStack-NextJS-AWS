@@ -38,3 +38,28 @@ export function ListingBookingSidebar({ listingId, pricePerNight, hostName, rese
             : "No bookings yet"}
           </p>
         </div>
+        {userActiveReservation ? (<div className="mt-3 rounded-2xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-emerald-100/70 p-3 shadow-sm shadow-emerald-900/5">
+            <div className="flex items-start gap-2.5">
+              <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white">
+                <CalendarCheck2 className="h-4 w-4"/>
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-800">
+                  You are booked
+                </p>
+                <p className="mt-1 text-sm font-medium text-emerald-900">
+                  You already have a reservation for this stay.
+                </p>
+                <p className="mt-1 text-xs text-emerald-800">
+                  {userActiveReservation.startDate.toLocaleDateString()} -{" "}
+                  {userActiveReservation.endDate.toLocaleDateString()}
+                </p>
+              </div>
+            </div>
+          </div>) : null}
+        <p className="mt-1 text-xs text-ink-500 md:hidden">Hosted by {hostName}</p>
+        <div className="mt-4">
+          
+          <ListingReservationForm listingId={listingId} pricePerNight={pricePerNight} maxGuests={maxGuests} isLoggedIn={isLoggedIn} bookingStatus={bookingStatus} bookingMessage={bookingMessage} initialCheckIn={initialCheckIn} initialCheckOut={initialCheckOut} initialAdults={initialAdults} initialChildren={initialChildren} initialInfants={initialInfants} unavailableRanges={unavailableRanges}/>
+        </div>
+      </section>
