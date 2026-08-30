@@ -38,6 +38,7 @@ export function ListingBookingSidebar({ listingId, pricePerNight, hostName, rese
             : "No bookings yet"}
           </p>
         </div>
+        
         {userActiveReservation ? (<div className="mt-3 rounded-2xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-emerald-100/70 p-3 shadow-sm shadow-emerald-900/5">
             <div className="flex items-start gap-2.5">
               <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white">
@@ -63,3 +64,18 @@ export function ListingBookingSidebar({ listingId, pricePerNight, hostName, rese
           <ListingReservationForm listingId={listingId} pricePerNight={pricePerNight} maxGuests={maxGuests} isLoggedIn={isLoggedIn} bookingStatus={bookingStatus} bookingMessage={bookingMessage} initialCheckIn={initialCheckIn} initialCheckOut={initialCheckOut} initialAdults={initialAdults} initialChildren={initialChildren} initialInfants={initialInfants} unavailableRanges={unavailableRanges}/>
         </div>
       </section>
+
+      
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-ink-200 bg-surface/95 px-4 py-3 shadow-[0_-8px_24px_-18px_rgba(15,23,42,0.35)] backdrop-blur md:px-6 lg:hidden">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3">
+          <p className="text-sm text-ink-700">
+            <span className="text-base font-semibold text-ink-900">${pricePerNight}</span>
+            <span className="ml-1">/ night</span>
+          </p>
+          <a href={`#booking-panel-${listingId}`} className="inline-flex rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-600">
+            {isLoggedIn ? "Book this stay" : "Sign in to book"}
+          </a>
+        </div>
+      </div>
+    </aside>);
+}
