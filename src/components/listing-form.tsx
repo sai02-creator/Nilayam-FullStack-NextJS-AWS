@@ -21,3 +21,24 @@ type ListingFormProps = {
         imageGallery: string[];
     };
 };
+export function ListingForm({ action, submitLabel = "Publish listing", submittingLabel = "Publishing...", initialValues }: ListingFormProps) {
+    const [galleryImages, setGalleryImages] = useState<string[]>(initialValues
+        ? Array.from(new Set([
+            ...(initialValues.imageGallery ?? []),
+            ...(initialValues.imageSrc ? [initialValues.imageSrc] : [])
+        ].filter(Boolean))).slice(0, 10)
+        : []);
+    const [uploadError, setUploadError] = useState("");
+    const [isDragActive, setIsDragActive] = useState(false);
+    const { startUpload, isUploading } = useUploadThing("imageUploader", {
+        onClientUploadComplete: (res) => {
+            const urls = (res ?? [])
+                .map((item) => item?.ufsUrl || item?.url || "")
+                .filter(Boolean);
+            setGalleryImages((prev) => Array.from(new Set([...prev, ...urls])).slice(0, 10));
+            setUploadError("");
+        },
+        onUploadError: (error) => {
+            setUploadError(error.message);
+        }
+    });
