@@ -54,7 +54,7 @@ function UserMenu({ name, hostCtaLabel }: {
             document.removeEventListener("keydown", handleEscape);
         };
     }, []);
-    return (<div className="relative" ref={menuRef}>
+    return (<div className="relative" ref={menuRef}>  
       
       <button type="button" className="flex items-center gap-2 rounded-full border border-ink-300 bg-surface px-3 py-2 shadow-sm" onClick={() => setOpen((prev) => !prev)}>
         <Menu className="h-4 w-4 text-ink-700"/>
