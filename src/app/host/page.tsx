@@ -10,3 +10,21 @@ import { PageIntro } from "@/components/ui/page-intro";
 import { StatCard } from "@/components/ui/stat-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { uiShell } from "@/lib/ui-classes";
+
+export default async function HostDashboardPage() {
+  const user = await requireUser();
+  const listings = await prisma.listing.findMany({
+    where: { userId: user.id },
+    orderBy: { createdAt: "desc" },
+  });
+  const listingCount = listings.length;
+  const avgNightlyRate = listingCount
+    ? Math.round(
+        listings.reduce((total, listing) => total + listing.pricePerNight, 0) /
+          listingCount,
+      )
+    : 0;
+  const totalCapacity = listings.reduce(
+    (total, listing) => total + listing.guestCount,
+    0,
+  );
