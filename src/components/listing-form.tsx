@@ -133,3 +133,11 @@ export function ListingForm({ action, submitLabel = "Publish listing", submittin
       <SubmitButton submitLabel={submitLabel} submittingLabel={submittingLabel}/>
     </form>);
 }
+type FieldInputProps = {
+    name: string;
+    label: string;
+    placeholder: string;
+    type?: string;
+    min?: number;
+    defaultValue?: string | number;
+};
