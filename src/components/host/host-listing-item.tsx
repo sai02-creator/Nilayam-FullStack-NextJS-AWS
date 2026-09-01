@@ -54,7 +54,10 @@ export function HostListingItem({ listing, index }: HostListingItemProps) {
           </div>
         </Link>
 
-        <p className="line-clamp-2 text-sm leading-relaxed text-ink-600 md:col-span-2">
+      
+      </div>
+        <div>
+          <p className="line-clamp-2 text-sm leading-relaxed text-ink-600 md:col-span-2">
           {listing.description}
         </p>
 
@@ -81,6 +84,6 @@ export function HostListingItem({ listing, index }: HostListingItemProps) {
             </span>
           </p>
         </div>
-      </div>
+        </div>
     </article>);
 }
