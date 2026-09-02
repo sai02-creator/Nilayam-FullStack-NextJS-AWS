@@ -18,7 +18,7 @@ type ListingBookingSidebarProps = {
     initialAdults?: string;
     initialChildren?: string;
     initialInfants?: string;
-    unavailableRanges: Array<{
+    unavailableRanges: Array<{  
         startDate: Date;
         endDate: Date;
     }>;
