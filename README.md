@@ -27,6 +27,10 @@ The production application is deployed on:
 
 ---
 
+# 📸 Application Preview
+
+![Nilayam – Full-Stack Airbnb-Style Rental Platform](./screenshots/nilayam-home.png)
+
 # 📌 Project Overview
 
 Nilayam provides a complete accommodation-booking experience.
